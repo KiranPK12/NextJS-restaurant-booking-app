@@ -3,15 +3,20 @@ import React from "react";
 
 const Slider = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-[calc(100vh-6rem)] md:h-[calc(100vh-8rem)]">
       {/* text container */}
-      <div className="h-1/2">
-        <h1>Test</h1>
-        <button>Order Now</button>
+      <div className="h-1/2 flex items-center justify-center flex-col gap-8 text-red-500 font-bold">
+        <h1 className="text-5xl uppercase text-center p-4 md:text-5xl xl:text-6xl">Test</h1>
+        <button className="bg-red-500 text-white py-4 px-8 rounded-md">Order Now</button>
       </div>
       {/* image container */}
       <div className="h-1/2 w-full relative ">
-        <Image src="/slide1.png" alt="Cover pic" fill />
+        <Image
+          src="/slide1.png"
+          alt="Cover pic"
+          fill
+          className="object-cover"
+        />
       </div>
     </div>
   );
