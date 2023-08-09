@@ -4,7 +4,7 @@ import { featuredProducts } from "../data";
 
 const Featured = () => {
   return (
-    <div className="w-screen overflow-x-scroll text-red-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+    <div className="w-screen overflow-x-scroll text-red-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']" >
       {/* wrapper */}
       <div className="w-max flex  ">
         {featuredProducts.map((product) => (
@@ -20,7 +20,7 @@ const Featured = () => {
                 className="object-contain"
               />
             </div>
-            <div className="flex flex-1 flex-col text-center items-center justify-between">
+            <div className="flex flex-1 flex-col text-center items-center justify-between mb-6">
               <h1 className="text-xl uppercase font-bold pt-6 xl:text-2xl 2xl:text-3xl">
                 {product.title}
               </h1>
