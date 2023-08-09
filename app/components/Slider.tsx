@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { preinit } from "react-dom";
 
 const data = [
   {
