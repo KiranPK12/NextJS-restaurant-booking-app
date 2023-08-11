@@ -19,7 +19,9 @@ const Offer = () => {
         <button className="bg-red-500 text-white rounded-md py-3 px-6 text-base">
           Order Now
         </button>
-        <CountDown/>
+        <span className="font-bold text-5xl text-yellow-300">
+          Offer Ends Soon
+    </span>
       </div>
       {/* image container */}
       <div className="flex-1 w-full relative md:h-full">
