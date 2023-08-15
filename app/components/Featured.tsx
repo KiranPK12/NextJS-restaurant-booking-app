@@ -1,15 +1,28 @@
 import Image from "next/image";
 import React from "react";
 import { featuredProducts } from "../data";
+import { ProductType } from "@/types/types";
 
-const Featured = () => {
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/products", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed");
+  }
+  return res.json();
+};
+
+const Featured = async () => {
+  const featuredProducts: ProductType[] = await getData();
   return (
-    <div className="w-screen overflow-x-scroll text-red-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']" >
+    <div className="w-screen overflow-x-scroll text-red-500 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
       {/* wrapper */}
       <div className="w-max flex  ">
         {featuredProducts.map((product) => (
           <div
-            className="w-screen h-[60vh] flex flex-col items-center justify-around p-4 pt-10 hover:bg-fuchsia-50 transition-all duration-300 md:w-[50vw] xl:w-[33vw] xl:h-[90vh]" 
+            className="w-screen h-[60vh] flex flex-col items-center justify-around p-4 pt-10 hover:bg-fuchsia-50 transition-all duration-300 md:w-[50vw] xl:w-[33vw] xl:h-[90vh]"
             key={product.id}
           >
             <div className="relative flex-1 w-full hover:rotate-[90deg] transition-all duration-500">

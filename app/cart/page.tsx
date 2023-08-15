@@ -6,7 +6,7 @@ const CartPage = () => {
   return (
     <div className="h-screen md:h-[calc(100vh - 11rem)] flex flex-col text-red-500 lg:flex-row  ">
       <div className="h-1/2 p-4 flex flex-col justify-center gap-4 overflow-y-scroll lg:h-full lg:w-2/3 xl:w-1/2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] lg:px-20 xl:px-40  ">
-        <div className="flex items-center justify-between mb-4 mt-[20rem] lg:mt-[20rem]">
+        <div className="flex items-center justify-between mb-4 mt-[20rem] lg:mt-[20rem] first:mt-[0rem]">
           <Image src="/temporary/p1.png" alt="" height={100} width={100} />
           <div>
             <h1 className="uppercase text-xl font-bold">Sicilan</h1>
@@ -63,7 +63,7 @@ const CartPage = () => {
         </div>
      
       </div>
-      <div className="h-1/2 p-4 bg-fuchsia-50 flex flex-col gap-4 justify-center lg:h-full lg:w-1/3 xl:w-1/2 ">
+      <div className="h-1/2 p-4 bg-fuchsia-50 flex flex-col gap-4 justify-center lg:h-full lg:w-1/3 xl:w-1/2 lg:px-20 ">
         <div className="flex justify-between">
           <span className="">Subtotal ( 3 items)</span>
           <span>$ 79.20</span>
