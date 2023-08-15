@@ -3,9 +3,9 @@ import Menu from "./Menu";
 import Link from "next/link";
 import CartIcon from "./CartIcon";
 import Image from "next/image";
+import UserLinks from "./UserLinks";
 
 const Navbar = () => {
-  const user = false;
   return (
     <div className="h-12 text-red-500 p-4 flex justify-between items-center border-b-[1px] border-b-red-500 uppercase md:h-20 md:text-center  ">
       {/* left links */}
@@ -27,7 +27,7 @@ const Navbar = () => {
           <Image src="/phone.png" alt="Phone" width={20} height={20} />
           <span className="text-white">044 272 39315</span>
         </div>
-        {!user ? <Link href="/">Login</Link> : <Link href="/menu">Orders</Link>}
+        <UserLinks/>
         <CartIcon />
       </div>
     </div>

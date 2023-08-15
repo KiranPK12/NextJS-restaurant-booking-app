@@ -1,11 +1,23 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillFacebook } from "react-icons/ai";
-import { bundlerModuleNameResolver } from "typescript";
 import Link from "next/link";
+import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const { data, status } = useSession();
+  const router = useRouter();
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if(status==='authenticated'){
+    router.push('/')
+  }
+
   return (
     <div className="p-4 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex items-center justify-center ">
       <div className="h-full shadow-xl rounded-md flex flex-col md:flex-row md:h-[60%] md:w-full lg:w-[60%] lg:h-[80%] ">
@@ -22,7 +34,10 @@ const LoginPage = () => {
           <p className="font-light">
             Login into your accounts or create a new account using the socials
           </p>
-          <button className="flex items-center justify-center gap-4 p-4 ring-1 ring-orange-100 rounded-md w-fit hover:bg-zinc-500/50 hover:text-white">
+          <button
+            onClick={() => signIn("google")}
+            className="flex items-center justify-center gap-4 p-4 ring-1 ring-orange-100 rounded-md w-fit hover:bg-zinc-500/50 hover:text-white"
+          >
             <span>
               <FcGoogle size={24} />
             </span>
@@ -30,7 +45,10 @@ const LoginPage = () => {
           </button>
           <button className="flex items-center gap-4 p-4 ring-1 ring-blue-100 rounded-md w-fit justify-center hover:bg-blue-400/50 hover:text-white">
             <span>
-              <AiFillFacebook className="text-blue-900 hover:text-white" size={24} />
+              <AiFillFacebook
+                className="text-blue-900 hover:text-white"
+                size={24}
+              />
             </span>
             <span className="text-sm xl:text-base">Sign in with Facebook</span>
           </button>

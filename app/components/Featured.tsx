@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { featuredProducts } from "../data";
-import { ProductType } from "@/types/types";
+import { ProductType } from "@/utils/types";
 
 const getData = async () => {
   const res = await fetch("http://localhost:3000/api/products", {
